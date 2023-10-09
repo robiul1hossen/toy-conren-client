@@ -7,6 +7,7 @@ import "aos/dist/aos.css";
 import { FaArrowRight, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import ToyGallery from "../ToyGallery/ToyGallery";
+import ShopByCategory from "./ShopByCategory/ShopByCategory";
 
 AOS.init();
 
@@ -19,15 +20,27 @@ const Home = () => {
         setToys(data);
       });
   }, []);
-  console.log(toys);
+
   return (
     <div>
       <Banner></Banner>
-      <div className="grid grid-cols-3 gap-x-8 ">
+      <div className="text-white mt-28">
+        <h2 className="font-bold text-4xl text-center mb-4 text-green-500">
+          Our toy{" "}
+          <span className="text-[#9E8603] pb-4 img-bottom">
+            Best Selling Toys
+          </span>
+        </h2>
+        <p className="mx-auto md:w-1/2 w-4/5 text-sm md:text-lg mb-10 mt-2">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ullam
+          repellat autem a modi dicta doloribus cumque laborum veniam quisquam!
+        </p>
+      </div>
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-x-8 ">
         {toys.map((toy) => (
           <div
             key={toy._id}
-            className="card card-shadow card-compact bg-transparent text-white shadow-2xl my-10"
+            className="card card-shadow card-compact bg-transparent text-white shadow-2xl mb-10"
             data-aos="zoom-in-up">
             <figure>
               <img
@@ -38,8 +51,10 @@ const Home = () => {
               />
             </figure>
             <div className="card-body">
-              <h2 className="card-title mb-[-10px]">Product Name</h2>
-              <h2 className="card-title">Saller: {toy.sellerName}</h2>
+              <h2 className="font-bold text-xl -mb-1">Product Name</h2>
+              <h2 className="font-bold text-xl -mt-1 ">
+                Saller: {toy.sellerName}
+              </h2>
 
               <p>If a dog chews shoes whose shoes does he choose</p>
               <div className="flex justify-center items-center gap-y-5">
@@ -67,6 +82,7 @@ const Home = () => {
           </div>
         ))}
       </div>
+      <ShopByCategory></ShopByCategory>
       <ToyGallery></ToyGallery>
     </div>
   );

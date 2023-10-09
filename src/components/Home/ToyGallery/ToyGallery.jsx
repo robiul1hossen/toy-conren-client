@@ -9,7 +9,7 @@ const ToyGallery = () => {
           Our toy{" "}
           <span className="text-[#9E8603] pb-4 img-bottom">Gallery</span>
         </h2>
-        <p className="mx-auto w-1/2 mb-10 mt-2">
+        <p className="mx-auto md:w-1/2 w-4/5 text-sm md:text-lg mb-10 mt-2">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ullam
           repellat autem a modi dicta doloribus cumque laborum veniam quisquam!
         </p>
