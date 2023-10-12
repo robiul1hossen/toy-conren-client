@@ -1,14 +1,11 @@
-import { useContext } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
-import { AuthContext } from "../providers/AuthProvider";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 
 const ProductDetails = () => {
   const [toyDetails, setToyDetails] = useState([]);
-  const { user } = useContext(AuthContext);
   const { id } = useParams();
 
   useEffect(() => {

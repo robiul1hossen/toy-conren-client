@@ -3,7 +3,7 @@ import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
 const ToyCategoryDetails = ({ toy }) => {
-  const { img, sellerName, price, rating } = toy;
+  const { img, sellerName, price, rating, _id } = toy;
   return (
     <div
       className="card card-shadow card-compact bg-transparent text-white shadow-2xl mb-10"
@@ -28,7 +28,7 @@ const ToyCategoryDetails = ({ toy }) => {
             />
           </p>
           <div className="card-actions justify-end">
-            <Link to="/product-details">
+            <Link to={`/toy-details/${_id}`}>
               <button className="btn text-white btn-circle btn-outline">
                 <FaArrowRight></FaArrowRight>
               </button>
