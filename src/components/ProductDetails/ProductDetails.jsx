@@ -34,14 +34,8 @@ const ProductDetails = () => {
             placeholderSymbol={<FaStar className="text-warning"></FaStar>}
             fullSymbol={<FaStar></FaStar>}></Rating>
           <span className="ml-2">( rating)</span>
-          <h3 className="font-bold mt-6">Member Ship</h3>
-          <div className="flex gap-5 mb-6 mt-3">
-            <div className="membership">3 Month</div>
-            <div className="membership">6 Month</div>
-            <div className="membership">1 Year</div>
-            <div className="membership">Life Time</div>
-          </div>
-          <div>
+
+          <div className="mt-32">
             <button className="w-full btn text-white hover:text-black hover:bg-white hover:border-black bg-red-600 my-5">
               Add to card
             </button>

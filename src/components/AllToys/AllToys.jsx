@@ -51,7 +51,7 @@ const AllToys = () => {
         <div className="my-4 flex justify-between">
           <div>
             <label className="block" htmlFor="">
-              Search by Subcategory
+              Search by Toy Name
             </label>
             <input
               className="px-3 py-2 rounded"
@@ -68,8 +68,7 @@ const AllToys = () => {
             <select
               className="px-4 py-2 rounded cursor-pointer"
               value={sortOrder}
-              onChange={handleSortChange} // Trigger sorting immediately
-            >
+              onChange={handleSortChange}>
               <option value="ascending">High To Low </option>
               <option value="descending">Low To High</option>
             </select>
