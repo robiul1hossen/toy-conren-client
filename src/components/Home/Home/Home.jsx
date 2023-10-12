@@ -71,7 +71,7 @@ const Home = () => {
                   />
                 </p>
                 <div className="card-actions justify-end">
-                  <Link to="/product-details">
+                  <Link to={`/toy-details/${toy._id}`}>
                     <button className="btn text-white btn-circle btn-outline">
                       <FaArrowRight></FaArrowRight>
                     </button>

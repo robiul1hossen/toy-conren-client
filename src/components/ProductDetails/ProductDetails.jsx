@@ -2,23 +2,36 @@ import { useContext } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { AuthContext } from "../providers/AuthProvider";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const ProductDetails = () => {
+  const [toyDetails, setToyDetails] = useState([]);
   const { user } = useContext(AuthContext);
-  console.log(user);
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/toy-details/${id}`)
+      .then((res) => res.json())
+      .then((data) => setToyDetails(data));
+  }, [id]);
+  console.log(toyDetails);
+
   return (
     <div className="text-white">
       <div className="grid grid-cols-2 gap-10">
         <div>
-          <img className="w-full h-[410px]" src={user.photoURL} alt="" />
+          <img className="w-full h-[410px]" src={toyDetails.img} alt="" />
         </div>
         <div>
           <h1 className="font-semibold text-3xl">title</h1>
           <p className="font-bold text-2xl my-6">
-            $22.59<sub className="font-normal">only</sub>
+            ${toyDetails.price}
+            <sub className="font-normal">only</sub>
           </p>
           <Rating
-            placeholderRating={3.5}
+            placeholderRating={toyDetails.rating}
             emptySymbol={<FaRegStar></FaRegStar>}
             readonly
             placeholderSymbol={<FaStar className="text-warning"></FaStar>}
@@ -68,7 +81,7 @@ const ProductDetails = () => {
               Description
             </div>
             <div className="collapse-content">
-              <p>desc </p>
+              <p>{toyDetails.toy_details} </p>
             </div>
           </div>
           <div className="collapse collapse-arrow join-item border border-base-300">
@@ -77,24 +90,18 @@ const ProductDetails = () => {
               Specifications
             </div>
             <div className="collapse-content">
-              <h1 className="font-bold">Instructor: </h1>
+              <h1 className="font-bold">
+                Sub Category: {toyDetails.subcategory}{" "}
+              </h1>
               <p className="font-semibold">
-                <span className="font-bold">Schedule:</span>
+                <span className="font-bold">
+                  Seller Name: {toyDetails.sellerName}
+                </span>
               </p>
               <p className="font-semibold">
-                <span className="font-bold">syllabus:</span>
-              </p>
-              <p className="font-semibold">
-                <span className="font-bold">Total Assignment:</span>{" "}
-              </p>
-              <p className="font-semibold">
-                <span className="font-bold">Assignment Duration:</span>{" "}
-              </p>
-              <p className="font-semibold">
-                <span className="font-bold">Certificate:</span>
-              </p>
-              <p className="font-semibold">
-                <span className="font-bold">Rewards:</span>
+                <span className="font-bold">
+                  Seller Email: {toyDetails.sellerEmail}
+                </span>
               </p>
             </div>
           </div>

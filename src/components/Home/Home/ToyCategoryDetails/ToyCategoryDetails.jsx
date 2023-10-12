@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const ToyCategoryDetails = ({ toy }) => {
   const { img, sellerName, price, rating } = toy;
-  console.log(toy);
   return (
     <div
       className="card card-shadow card-compact bg-transparent text-white shadow-2xl mb-10"
