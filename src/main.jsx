@@ -60,7 +60,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <div className="bg-[#212121] -z-50 ">
+      <div className=" -z-50 bg-[#212121] ">
         <div className="max-w-screen-xl mx-auto bg-[#212121]">
           <RouterProvider router={router} />
         </div>
