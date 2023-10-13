@@ -9,7 +9,7 @@ const Banner = () => {
         <div className="text-white flex justify-center md:items-center items-start h-full">
           <div>
             <div></div>
-            <h2 className=" text-center w-4/5 mx-auto text-xl md:text-3xl text-[#9E8603] my-6">
+            <h2 className=" text-center w-4/5 mx-auto text-xl md:text-3xl text-yellow-500 my-6">
               <TypeAnimation
                 preRenderFirstString={true}
                 sequence={[

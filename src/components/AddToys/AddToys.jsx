@@ -166,7 +166,12 @@ const AddToys = () => {
                   <label className="label">
                     <span className="label-text text-white">Description</span>
                   </label>
-                  <textarea name="description" id="" cols="30"></textarea>
+                  <textarea
+                    name="description"
+                    placeholder="Write Your Toy Description"
+                    id=""
+                    className="px-4 py-1 rounded-lg"
+                    cols="30"></textarea>
                 </div>
               </div>
               <div className="form-control mt-6">

@@ -3,16 +3,48 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [mytoys, setMytoys] = useState([]);
+
+  const handleDeleteToy = (toyId) => {
+    console.log(toyId);
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Implement the logic to send a DELETE request to delete the toy
+        fetch(`http://localhost:3000/delete-toy/${toyId}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          })
+          .catch((error) => {
+            console.error("Error deleting toy:", error);
+          });
+      }
+    });
+  };
+
   useEffect(() => {
     fetch(`http://localhost:3000/my-toys?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMytoys(data));
   }, [user]);
-  console.log(mytoys);
   return (
     <div>
       <div className="overflow-x-auto text-white">
@@ -24,6 +56,8 @@ const MyToys = () => {
               <th>Sub Category</th>
               <th>Seller Name</th>
               <th>Price</th>
+              <th>Update</th>
+              <th>Delete</th>
               <th>View Details</th>
             </tr>
           </thead>
@@ -46,6 +80,20 @@ const MyToys = () => {
                 </td>
                 <td>{toy.sellerName}</td>
                 <td>${toy.price}</td>
+                <th>
+                  <Link to={``}>
+                    <button className="btn btn-ghost btn-xs">Update</button>
+                  </Link>
+                </th>
+                <th>
+                  <Link to={``}>
+                    <button
+                      onClick={() => handleDeleteToy(toy._id)}
+                      className="btn btn-ghost btn-xs">
+                      Delete
+                    </button>
+                  </Link>
+                </th>
                 <th>
                   <Link to={`/toy-details/${toy._id}`}>
                     <button className="btn btn-ghost btn-xs">Details</button>
