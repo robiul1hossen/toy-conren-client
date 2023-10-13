@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -18,13 +19,16 @@ const Login = () => {
 
     signIn(email, password).then(() => {
       const savedUser = { email: email, name: name, role: "user" };
-      fetch("http://localhost:3000/users", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(savedUser),
-      })
+      fetch(
+        "https://toy-corner-server-11qqlrj5w-robiul1hossen.vercel.app/users",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(savedUser),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -107,6 +111,9 @@ const Login = () => {
             <span className="font-bold underline">Please Sign Up</span>
           </Link>
         </p>
+        <div className="">
+          <SocialLogin></SocialLogin>
+        </div>
       </form>
     </div>
   );

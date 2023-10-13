@@ -8,7 +8,9 @@ const ShopByCategory = () => {
 
   useEffect(() => {
     const fetchDataBySubcategory = (activeTab) => {
-      fetch(`http://localhost:3000/subcategories/toys/${activeTab}`)
+      fetch(
+        `https://toy-corner-server-11qqlrj5w-robiul1hossen.vercel.app/subcategories/toys/${activeTab}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setToys(data);

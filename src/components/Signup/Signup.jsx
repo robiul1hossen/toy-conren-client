@@ -3,6 +3,7 @@ import "./Signup.css";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../SocialLogin/SocialLogin";
 const Signup = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const handleSignup = (event) => {
@@ -18,13 +19,16 @@ const Signup = () => {
       updateUserProfile(name, photo)
         .then(() => {
           const savedUser = { email: email, name: name, role: "user" };
-          fetch("http://localhost:3000/users", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(savedUser),
-          })
+          fetch(
+            "https://toy-corner-server-11qqlrj5w-robiul1hossen.vercel.app/users",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(savedUser),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (data.insertedId) {
@@ -121,6 +125,7 @@ const Signup = () => {
             <span className="font-bold underline">Please Sign In</span>
           </Link>
         </p>
+        <SocialLogin></SocialLogin>
       </form>
     </div>
   );

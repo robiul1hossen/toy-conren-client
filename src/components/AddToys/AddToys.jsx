@@ -41,13 +41,16 @@ const AddToys = () => {
             toy_details,
           };
           console.log(toyItem);
-          fetch("http://localhost:3000/alltoys", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(toyItem),
-          })
+          fetch(
+            "https://toy-corner-server-11qqlrj5w-robiul1hossen.vercel.app/alltoys",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(toyItem),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (data.insertedId) {
@@ -106,7 +109,7 @@ const AddToys = () => {
                   <select
                     defaultValue="Select Sub-Category"
                     id="select_subcategory"
-                    className="h-12 text-white rounded-lg px-6">
+                    className="h-12 text-black rounded-lg px-6">
                     <option disabled>Select Sub-Category</option>
                     <option value="science-kit">Science Kit</option>
                     <option value="math-learning-toy">Math Learning Toy</option>
@@ -158,11 +161,11 @@ const AddToys = () => {
                     </label>
                     <input
                       type="file"
-                      className="file-input file-input-bordered w-full"
+                      className="file-input file-input-bordered w-full text-black"
                     />
                   </div>
                 </div>
-                <div className="form-control md:w-[213%] text-white">
+                <div className="form-control md:w-[213%] text-white bg-transparent border-none">
                   <label className="label">
                     <span className="label-text text-white">Description</span>
                   </label>
@@ -170,7 +173,7 @@ const AddToys = () => {
                     name="description"
                     placeholder="Write Your Toy Description"
                     id=""
-                    className="px-4 py-1 rounded-lg"
+                    className="px-4 py-1 rounded-lg text-black"
                     cols="30"></textarea>
                 </div>
               </div>

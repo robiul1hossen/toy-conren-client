@@ -14,7 +14,9 @@ AOS.init();
 const Home = () => {
   const [toys, setToys] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/alltoys")
+    fetch(
+      "https://toy-corner-server-11qqlrj5w-robiul1hossen.vercel.app/alltoys"
+    )
       .then((res) => res.json())
       .then((data) => {
         setToys(data);

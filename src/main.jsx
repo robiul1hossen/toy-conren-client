@@ -12,6 +12,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import AddToys from "./components/AddToys/AddToys";
 import AllToys from "./components/AllToys/AllToys";
 import MyToys from "./components/MyToys/MyToys";
+import UpdateMyToys from "./components/MyToys/UpdateMyToys/UpdateMyToys";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyToys></MyToys>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: `/update-toy/:id`,
+        element: (
+          <PrivateRoute>
+            <UpdateMyToys></UpdateMyToys>
           </PrivateRoute>
         ),
       },
