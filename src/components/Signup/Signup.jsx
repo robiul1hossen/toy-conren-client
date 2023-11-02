@@ -19,16 +19,13 @@ const Signup = () => {
       updateUserProfile(name, photo)
         .then(() => {
           const savedUser = { email: email, name: name, role: "user" };
-          fetch(
-            "https://toy-corner-server-11qqlrj5w-robiul1hossen.vercel.app/users",
-            {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(savedUser),
-            }
-          )
+          fetch("http://localhost:3000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(savedUser),
+          })
             .then((res) => res.json())
             .then((data) => {
               if (data.insertedId) {

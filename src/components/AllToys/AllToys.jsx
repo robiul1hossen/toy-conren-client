@@ -8,9 +8,7 @@ const AllToys = () => {
   const [filteredToys, setFilteredToys] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://toy-corner-server-11qqlrj5w-robiul1hossen.vercel.app/alltoys"
-    )
+    fetch("http://localhost:3000/alltoys")
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
@@ -56,7 +54,7 @@ const AllToys = () => {
               Search by Toy Name
             </label>
             <input
-              className="px-3 py-2 rounded"
+              className="px-3 py-2 rounded text-black"
               type="text"
               placeholder="Search Your Toys"
               value={searchText}
@@ -68,7 +66,7 @@ const AllToys = () => {
               Sort By Price
             </label>
             <select
-              className="px-4 py-2 rounded cursor-pointer"
+              className="px-4 py-2 rounded cursor-pointer text-black"
               value={sortOrder}
               onChange={handleSortChange}>
               <option value="ascending">High To Low </option>

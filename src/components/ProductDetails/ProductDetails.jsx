@@ -9,9 +9,7 @@ const ProductDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(
-      `https://toy-corner-server-11qqlrj5w-robiul1hossen.vercel.app/toy-details/${id}`
-    )
+    fetch(`http://localhost:3000/toy-details/${id}`)
       .then((res) => res.json())
       .then((data) => setToyDetails(data));
   }, [id]);
@@ -38,12 +36,12 @@ const ProductDetails = () => {
           <span className="ml-2">( rating)</span>
 
           <div className="mt-32">
-            <button className="w-full btn text-white hover:text-black hover:bg-white hover:border-black bg-red-600 my-5">
+            <button className="w-full btn text-black hover:text-white  bg-[#9E8603] hover:bg-[#212121]   my-5">
               Add to card
             </button>
           </div>
           <div className="w-full">
-            <button className="btn btn-outline text-white w-full">
+            <button className="btn btn-outline hover:text-black hover:bg-[#9E8603] text-white w-full">
               Buy Now
             </button>
           </div>

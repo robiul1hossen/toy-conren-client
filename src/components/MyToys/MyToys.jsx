@@ -23,12 +23,9 @@ const MyToys = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // Implement the logic to send a DELETE request to delete the toy
-        fetch(
-          `https://toy-corner-server-11qqlrj5w-robiul1hossen.vercel.app/delete-toy/${toyId}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`http://localhost:3000/delete-toy/${toyId}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -44,9 +41,7 @@ const MyToys = () => {
   };
 
   useEffect(() => {
-    fetch(
-      `https://toy-corner-server-11qqlrj5w-robiul1hossen.vercel.app/my-toys?email=${user?.email}`
-    )
+    fetch(`http://localhost:3000/my-toys?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMytoys(data));
   }, [user]);

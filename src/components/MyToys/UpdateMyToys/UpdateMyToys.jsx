@@ -7,9 +7,7 @@ const UpdateMyToys = () => {
   const { user } = useContext(AuthContext);
   const [mytoys, setMytoys] = useState([]);
   useEffect(() => {
-    fetch(
-      `https://toy-corner-server-11qqlrj5w-robiul1hossen.vercel.app/my-toys?email=${user?.email}`
-    )
+    fetch(`http://localhost:3000/my-toys?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMytoys(data));
   }, [user]);
@@ -35,16 +33,13 @@ const UpdateMyToys = () => {
   };
 
   const handleUpdateToy = (toyId) => {
-    fetch(
-      `https://toy-corner-server-11qqlrj5w-robiul1hossen.vercel.app/update-toy/${toyId}`,
-      {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(),
-      }
-    )
+    fetch(`http://localhost:3000/update-toy/${toyId}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
