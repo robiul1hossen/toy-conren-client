@@ -186,7 +186,9 @@ const Home = () => {
               />
             </figure>
             <div className="card-body">
-              <h2 className="font-bold text-xl -mb-1">Product Name</h2>
+              <h2 className="font-bold text-xl -mb-1">
+                Product: {toy.subcategory}
+              </h2>
               <h2 className="font-bold text-xl -mt-1 ">
                 Seller: {toy.sellerName}
               </h2>
