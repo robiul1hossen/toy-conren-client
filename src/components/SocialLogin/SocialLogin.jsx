@@ -18,13 +18,16 @@ const SocialLogin = () => {
         name: loggedUser.displayName,
         role: "student",
       };
-      fetch("http://localhost:3000/users", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(savedUser),
-      })
+      fetch(
+        "https://toy-corner-server-3oh1cy0t8-robiul1hossen.vercel.app/users",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(savedUser),
+        }
+      )
         .then((res) => res.json())
         .then(() => {
           navigate(from, { replace: true });

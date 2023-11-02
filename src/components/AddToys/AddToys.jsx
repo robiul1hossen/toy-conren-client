@@ -41,13 +41,16 @@ const AddToys = () => {
             toy_details,
           };
           console.log(toyItem);
-          fetch("http://localhost:3000/alltoys", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(toyItem),
-          })
+          fetch(
+            "https://toy-corner-server-3oh1cy0t8-robiul1hossen.vercel.app/alltoys",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(toyItem),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (data.insertedId) {

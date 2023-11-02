@@ -9,7 +9,9 @@ const ProductDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/toy-details/${id}`)
+    fetch(
+      `https://toy-corner-server-3oh1cy0t8-robiul1hossen.vercel.app/toy-details/${id}`
+    )
       .then((res) => res.json())
       .then((data) => setToyDetails(data));
   }, [id]);

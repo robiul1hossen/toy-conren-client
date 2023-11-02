@@ -8,7 +8,9 @@ const ShopByCategory = () => {
 
   useEffect(() => {
     const fetchDataBySubcategory = (activeTab) => {
-      fetch(`http://localhost:3000/subcategories/toys/${activeTab}`)
+      fetch(
+        `https://toy-corner-server-3oh1cy0t8-robiul1hossen.vercel.app/subcategories/toys/${activeTab}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setToys(data);
@@ -26,7 +28,7 @@ const ShopByCategory = () => {
     <div className="my-10 text-white">
       <h2 className="font-bold text-center text-3xl my-5">Shop by category</h2>
 
-      <div className="flex justify-center gap-5 items-center">
+      <div className="md:flex justify-center gap-5 items-center">
         <div
           onClick={() => handleTabClick("science-kits")}
           className={`${
@@ -56,7 +58,7 @@ const ShopByCategory = () => {
         </div>
       </div>
 
-      <div className="flex justify-center gap-x-10 mb-20 mt-10">
+      <div className="md:flex justify-center gap-x-10 mb-20 mt-10">
         {toys.map((toy) => (
           <ToyCategoryDetails key={toy._id} toy={toy}></ToyCategoryDetails>
         ))}

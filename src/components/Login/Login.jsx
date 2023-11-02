@@ -19,13 +19,16 @@ const Login = () => {
 
     signIn(email, password).then(() => {
       const savedUser = { email: email, name: name, role: "user" };
-      fetch("http://localhost:3000/users", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(savedUser),
-      })
+      fetch(
+        "https://toy-corner-server-3oh1cy0t8-robiul1hossen.vercel.app/users",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(savedUser),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

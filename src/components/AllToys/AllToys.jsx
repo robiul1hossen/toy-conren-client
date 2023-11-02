@@ -8,7 +8,9 @@ const AllToys = () => {
   const [filteredToys, setFilteredToys] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/alltoys")
+    fetch(
+      "https://toy-corner-server-3oh1cy0t8-robiul1hossen.vercel.app/alltoys"
+    )
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
@@ -48,7 +50,7 @@ const AllToys = () => {
     <div>
       <div className="overflow-x-auto text-white">
         {/* Search and Sort Controls */}
-        <div className="my-4 flex justify-between">
+        <div className="my-4 md:flex justify-between">
           <div>
             <label className="block" htmlFor="">
               Search by Toy Name
@@ -66,7 +68,7 @@ const AllToys = () => {
               Sort By Price
             </label>
             <select
-              className="px-4 py-2 rounded cursor-pointer text-black"
+              className="px-4 py-2 rounded cursor-pointer text-black w-52"
               value={sortOrder}
               onChange={handleSortChange}>
               <option value="ascending">High To Low </option>

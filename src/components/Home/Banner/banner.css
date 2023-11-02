@@ -24,7 +24,7 @@
   position: absolute;
 } */
 
-#app {
+/* #app {
   height: 100%;
 }
 html,
@@ -40,7 +40,7 @@ body {
   color: #000;
   margin: 0;
   padding: 0;
-}
+} */
 
 .swiper {
   width: 100%;
@@ -93,4 +93,32 @@ body {
   stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
   stroke-dasharray: 125.6;
   transform: rotate(-90deg);
+}
+
+/* custom banner style */
+.banner_div {
+  height: 80vh;
+  width: 100%;
+}
+.banner_div::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.banner_div1 {
+  background: url("https://i.ibb.co/v35M6vz/atish-sewmangel-NYb-Tdr-Bh740-unsplash.jpg")
+    no-repeat center center;
+  background-size: cover;
+}
+.banner_div2 {
+  background: url("https://i.ibb.co/Z8v7Pr6/gimmel-magaway-h-CIPLW9-Cl-Og-unsplash.jpg")
+    no-repeat center center;
+  background-size: cover;
+}
+.banner_div3 {
+  background: url("https://i.ibb.co/vhxjc4H/uday-tadphale-Cw-Mg-Shbz-Brc-unsplash.jpg")
+    no-repeat center center;
+  background-size: cover;
 }
